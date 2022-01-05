@@ -43,14 +43,14 @@ def index(request):
             look = cursus.fetchall()
 
             try:
-                # eliminer la duplication des données:
+                # eliminate data duplicate:
                 mycol.create_index(look[0]['Column_name'], unique=True)
             except:
                 pass
             for raw in result:
                  for key in raw:
 
-                        #changer le type 'datetime' en String:
+                        #change type 'datetime' to String:
                       if (isinstance(raw[key], datetime.datetime) or isinstance(raw[key], datetime.date)):
                          raw[key] = raw[key].strftime('%Y-%m-%d %H:%M:%S')
                  try:
